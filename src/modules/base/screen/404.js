@@ -6,7 +6,7 @@ import NotFoundImg from 'ui/resources/img/404.png'
 function NotFoundScreen() {
   return (
     <>
-      <DashboardLayout>
+      <DashboardLayout noDrawer>
         <Box
           height="100%"
           position="relative"

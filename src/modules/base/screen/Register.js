@@ -25,7 +25,7 @@ function RegisterScreen() {
     role: '',
     bank: []
   }
-  const { values, setText, setValue, emptyState } = useForm(newForm)
+  const { values, setValue, emptyState } = useForm(newForm)
 
   return (
     <>
@@ -42,7 +42,7 @@ function RegisterScreen() {
                 label="Text"
                 variant="outlined"
                 value={values.name}
-                onChange={setText}
+                onChange={({ target }) => setValue(target.name, target.value)}
                 validators={['required']}
                 errorMessages={['This field cannot be empty']}
                 fullWidth
@@ -52,7 +52,7 @@ function RegisterScreen() {
                 label="Text with validation(Email)"
                 variant="outlined"
                 value={values.email}
-                onChange={setText}
+                onChange={({ target }) => setValue(target.name, target.value)}
                 validators={['required', 'isEmail']}
                 errorMessages={['This field cannot be empty', 'Please insert a E-mail']}
                 fullWidth
@@ -63,7 +63,7 @@ function RegisterScreen() {
                 type="password"
                 variant="outlined"
                 value={values.password}
-                onChange={setText}
+                onChange={({ target }) => setValue(target.name, target.value)}
                 validators={['required']}
                 errorMessages={['This field cannot be empty']}
                 fullWidth
@@ -74,7 +74,7 @@ function RegisterScreen() {
                   labelId="role-options"
                   name="role"
                   value={values.role}
-                  onChange={setText}
+                  onChange={({ target }) => setValue(target.name, target.value)}
                   label="Role"
                 >
                   {userRoles.map(role => (

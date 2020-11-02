@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Build as RepairIcon,
+  FlipToFront as FeedbackIcon,
   Dashboard as DashboardIcon,
   ListAlt as FormIcon,
   Error as NotFoundIcon,
@@ -19,13 +19,13 @@ export const menu = [
   { text: 'Dashboard components' },
   { icon: <DashboardIcon />, text: 'Dashboard', link: '/' },
   { divider: true, text: 'divider1' },
-  { text: 'Services' },
-  { icon: <RepairIcon />, text: 'Refurbishment', link: '/refurbishment' },
-  { divider: true, text: 'divider2' },
-  { text: 'Inputs' },
+  { text: 'Screens' },
   { icon: <FormIcon />, text: 'Form', link: '/form' },
-  { icon: <InputIcon />, text: 'Other Inputs', link: '/other-input' },
   { divider: true, text: 'divider2' },
-  { text: 'Others' },
-  { icon: <NotFoundIcon />, text: 'Error', link: '/404' }
+  { text: 'Other Screens' },
+  { icon: <NotFoundIcon />, text: 'Error', link: '/404' },
+  { divider: true, text: 'divider3' },
+  { text: 'Other Components' },
+  { icon: <InputIcon />, text: 'Other Inputs', link: '/other-input' },
+  { icon: <FeedbackIcon />, text: 'Feedback', link: '/other-input' }
 ]

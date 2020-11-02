@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import {
   AppBar,
+  Badge,
   Box,
   Drawer,
   Divider,
@@ -17,12 +18,14 @@ import {
 } from '@material-ui/core'
 import {
   Menu as MenuIcon,
+  ArrowBackIos as BackIcon,
   Notifications as NotificationsIcon
 } from '@material-ui/icons'
 import { useRoutes } from 'utils'
 import { UserContext } from 'utils/sessions'
 import { menu } from '../constant'
 import UserDropdownMenu from '../components/UserDropdownMenu'
+import Notifications from '../components/feedback/Notifications'
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const DashLayout = ({ children }) => {
+const DashLayout = ({ noDrawer, children }) => {
   const { menuButton, title, layerOverlay, contentStyle } = useStyles()
   const [isOpen, setIsOpen] = useState(false)
   const { history } = useRoutes()
@@ -79,15 +82,28 @@ const DashLayout = ({ children }) => {
         <Toolbar>
           <Grid container spacing={2} alignItems="center">
             <Grid container item xs={11} alignItems="center">
-              <IconButton
-                edge="start"
-                className={menuButton}
-                color="inherit"
-                aria-label="menu"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <MenuIcon />
-              </IconButton>
+              {!noDrawer && (
+                <IconButton
+                  edge="start"
+                  className={menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  <MenuIcon />
+                </IconButton>
+              )}
+              {noDrawer && (
+                <IconButton
+                  edge="start"
+                  className={menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={() => history.goBack()}
+                >
+                  <BackIcon />
+                </IconButton>
+              )}
               <Hidden only="xs">
                 <Typography variant="h6" className={title}>
                   Gary&apos;s Material UI Showcase
@@ -95,9 +111,7 @@ const DashLayout = ({ children }) => {
               </Hidden>
             </Grid>
             <Grid container item xs={1} justify="flex-end">
-              <IconButton style={{ color: 'white' }}>
-                <NotificationsIcon />
-              </IconButton>
+              <Notifications />
               <UserDropdownMenu />
             </Grid>
           </Grid>

@@ -21,25 +21,7 @@ const useForm = initialValue => {
 
   return {
     values,
-    setText: e => {
-      setValues({
-        ...values,
-        [e.target.name]: e.target.value
-      })
-    },
     setValue: (name, value) => {
-      setValues({
-        ...values,
-        [name]: value
-      })
-    },
-    setDate: (value, name) => {
-      setValues({
-        ...values,
-        [name]: value
-      })
-    },
-    addToArray: (value, name) => {
       setValues({
         ...values,
         [name]: value
