@@ -2,14 +2,15 @@ import React from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton'
 import Badge from '@material-ui/core/Badge'
+import Box from '@material-ui/core/Box'
 import Menu from '@material-ui/core/Menu'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import ListSubheader from '@material-ui/core/ListSubheader'
 import {
   Notifications as NotificationsIcon
 } from '@material-ui/icons'
+import { notifications } from '../../constant'
 
 const StyledMenu = withStyles({
   paper: {
@@ -33,7 +34,7 @@ const StyledMenu = withStyles({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 250,
+    width: 300,
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
     position: 'relative',
@@ -49,8 +50,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+const CustomListItem = ({ item, i, handleMouseOver }) => {
+  const [unread, setUnread] = React.useState(item.unread)
+
+  return (
+    <Box
+      style={{ cursor: 'pointer' }}
+      onClick={() => {
+        setUnread(false)
+        handleMouseOver(i)
+      }}
+    >
+      <ListItem
+        style={{
+          background: unread ? 'rgba(0, 0, 0, 0.05)' : 'transparent'
+        }}
+      >
+        <ListItemText primary={item.msg} />
+      </ListItem>
+    </Box>
+  )
+}
+
 export default function CustomizedMenus() {
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const [items, setItems] = React.useState(notifications)
   const classes = useStyles()
 
   const handleClick = (event) => {
@@ -59,6 +83,12 @@ export default function CustomizedMenus() {
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const handleMouseOver = (i) => {
+    const copy = notifications
+    copy[i].unread = false
+    setItems(copy)
   }
 
   return (
@@ -70,30 +100,27 @@ export default function CustomizedMenus() {
         style={{ color: 'white' }}
         onClick={handleClick}
       >
-        <Badge badgeContent={4} color="error">
+        <Badge badgeContent={items.filter(i => i.unread).length} color="error">
           <NotificationsIcon />
         </Badge>
       </IconButton>
       <StyledMenu
         id="customized-menu"
         anchorEl={anchorEl}
-        keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
         <List className={classes.root} subheader={<li />}>
-          {[0, 1, 2, 3, 4].map((sectionId) => (
-            <li key={`section-${sectionId}`} className={classes.listSection}>
-              <ul className={classes.ul}>
-                <ListSubheader>{`I'm sticky ${sectionId}`}</ListSubheader>
-                {[0, 1, 2].map((item) => (
-                  <ListItem key={`item-${sectionId}-${item}`}>
-                    <ListItemText primary={`Item ${item}`} />
-                  </ListItem>
-                ))}
-              </ul>
-            </li>
-          ))}
+          <li className={classes.listSection}>
+            <ul className={classes.ul}>
+              {items.map((item, i) => (
+                <div key={`item-${item.id}`}>
+                  <CustomListItem item={item} i={i} handleMouseOver={handleMouseOver} />
+                  {(i + 1 !== items.length) && <Box width="100%" height="1px" borderBottom="#BEBEBE" />}
+                </div>
+              ))}
+            </ul>
+          </li>
         </List>
       </StyledMenu>
     </>

@@ -5,11 +5,15 @@ import theme from 'ui/theme'
 import {
   DashboardScreen
 } from 'modules/dashboard'
-import { CustomSnackbar, SnackbarContextProvider } from 'ui/components/Snackbar'
+import {
+  InputScreen,
+  FeedbackScreen
+} from 'modules/others'
+import { CustomSnackbar, SnackbarContextProvider } from 'ui/components/feedback/Snackbar'
 import { UserContextProvider } from 'utils/sessions'
-import NotFoundScreen from './screen/404'
-import RegisterScreen from './screen/Register'
-import InputScreen from './screen/OtherInput'
+import NotFoundScreen from 'modules/screens/screen/404'
+import RegisterScreen from 'modules/screens/screen/Register'
+import CoachmarkScreen from 'modules/screens/screen/Coachmarks'
 
 import './App.css'
 
@@ -23,6 +27,8 @@ function App() {
               <Switch>
                 <Route exact path="/form" component={RegisterScreen} />
                 <Route exact path="/other-input" component={InputScreen} />
+                <Route exact path="/feedback" component={FeedbackScreen} />
+                <Route exact path="/coachmark" component={CoachmarkScreen} />
                 <Route exact path="/" component={DashboardScreen} />
                 <Route component={NotFoundScreen} />
               </Switch>

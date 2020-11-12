@@ -1,7 +1,7 @@
 import React/* , { useContext } */ from 'react'
 import { Box, Button, Typography } from '@material-ui/core'
 import DashboardLayout from 'ui/layout/dashboardLayout'
-// import { SnackbarContext } from 'ui/components/Snackbar'
+// import { SnackbarContext } from 'ui/components/feedback/Snackbar'
 import { useRoutes } from 'utils'
 
 function DashboardScreen() {

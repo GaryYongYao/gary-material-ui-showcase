@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import * as Cookies from 'js-cookie'
 import request from 'utils/request'
-import { SnackbarContext } from 'ui/components/Snackbar'
+import { SnackbarContext } from 'ui/components/feedback/Snackbar'
 import { useRoutes } from 'utils'
 
 export const setSessionCookie = session => {

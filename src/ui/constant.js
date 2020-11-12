@@ -1,8 +1,10 @@
 import React from 'react'
+import Button from '@material-ui/core/Button'
 import {
   FlipToFront as FeedbackIcon,
   Dashboard as DashboardIcon,
   ListAlt as FormIcon,
+  Accessibility as CoachmarkIcon,
   Error as NotFoundIcon,
   Input as InputIcon
 } from '@material-ui/icons'
@@ -15,17 +17,76 @@ export const options = {
   sorting: true
 }
 
+export const notifications = [
+  { id: 1, unread: true, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s' },
+  { id: 2, unread: true, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s' },
+  { id: 3, unread: false, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s' },
+  { id: 4, unread: false, msg: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s' }
+]
+
+export const snackbar = [
+  (openSnackbar) => (
+    <Button
+      key="1"
+      color="primary"
+      style={{
+        width: '100px'
+      }}
+      onClick={() => openSnackbar('This is info', 'info')}
+    >
+      Info
+    </Button>
+  ),
+  (openSnackbar) => (
+    <Button
+      key="2"
+      color="secondary"
+      style={{
+        width: '100px'
+      }}
+      onClick={() => openSnackbar('Successful', 'success')}
+    >
+      Success
+    </Button>
+  ),
+  (openSnackbar) => (
+    <Button
+      key="3"
+      style={{
+        background: '#ff9800',
+        color: 'white',
+        width: '100px'
+      }}
+      onClick={() => openSnackbar('Warning!', 'warning')}
+    >
+      Warning
+    </Button>
+  ),
+  (openSnackbar) => (
+    <Button
+      key="4"
+      style={{
+        background: '#FF5A5F',
+        color: 'white',
+        width: '100px'
+      }}
+      onClick={() => openSnackbar('Error!', 'error')}
+    >
+      Error
+    </Button>
+  )
+]
+
 export const menu = [
   { text: 'Dashboard components' },
   { icon: <DashboardIcon />, text: 'Dashboard', link: '/' },
   { divider: true, text: 'divider1' },
   { text: 'Screens' },
   { icon: <FormIcon />, text: 'Form', link: '/form' },
-  { divider: true, text: 'divider2' },
-  { text: 'Other Screens' },
+  { icon: <CoachmarkIcon />, text: 'Coachmarks', link: '/coachmark' },
   { icon: <NotFoundIcon />, text: 'Error', link: '/404' },
-  { divider: true, text: 'divider3' },
+  { divider: true, text: 'divider2' },
   { text: 'Other Components' },
   { icon: <InputIcon />, text: 'Other Inputs', link: '/other-input' },
-  { icon: <FeedbackIcon />, text: 'Feedback', link: '/other-input' }
+  { icon: <FeedbackIcon />, text: 'Feedback', link: '/feedback' }
 ]

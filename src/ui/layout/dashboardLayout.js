@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import {
   AppBar,
-  Badge,
   Box,
   Drawer,
   Divider,
@@ -18,13 +17,12 @@ import {
 } from '@material-ui/core'
 import {
   Menu as MenuIcon,
-  ArrowBackIos as BackIcon,
-  Notifications as NotificationsIcon
+  ArrowBackIos as BackIcon
 } from '@material-ui/icons'
 import { useRoutes } from 'utils'
 import { UserContext } from 'utils/sessions'
 import { menu } from '../constant'
-import UserDropdownMenu from '../components/UserDropdownMenu'
+import UserDropdownMenu from '../components/feedback/UserDropdownMenu'
 import Notifications from '../components/feedback/Notifications'
 
 const useStyles = makeStyles((theme) => ({

@@ -26,8 +26,7 @@ export const CustomSnackbar = () => {
         horizontal: 'center',
       }}
       open={snackbarContext.open}
-      autoHideDuration={5000}
-      onClose={closeSnackbar}
+      onClose={() => setTimeout(() => closeSnackbar(), 5000)}
       ContentProps={{
         'aria-describedby': 'message-id',
       }}
