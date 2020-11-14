@@ -321,7 +321,7 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: { main: primaryColor, text: '#707070' },
-    secondary: { main: '#12a340' },
+    secondary: { main: '#FF5A5F' },
     error: { main: errorColor, text: '#707070' }
   },
   typography: {

@@ -14,7 +14,7 @@ const useStyle = makeStyles((theme) => ({
   }
 }))
 
-const CountdownClock = ({ due, totalCutOff }) => {
+const CountdownProgress = ({ due, totalCutOff }) => {
   const classes = useStyle()
   const [countdown, setCountdown] = useState(due)
 
@@ -25,7 +25,7 @@ const CountdownClock = ({ due, totalCutOff }) => {
   }, [countdown])
 
   const progress = () => (countdown > 0
-    ? ((totalCutOff - countdown) / totalCutOff) * 100
+    ? 100 - ((countdown / totalCutOff) * 100)
     : 100
   )
 
@@ -36,20 +36,25 @@ const CountdownClock = ({ due, totalCutOff }) => {
           position="absolute"
           top="18px"
           left="25px"
+          height="55px"
+          display="flex"
+          alignItems="center"
+          color="#FF5A5F"
+          style={{ fontWeight: 800 }}
         >
           {getHours(countdown) > 0 ? (
             <>
-              {`${twoDigit(getHours(countdown))}hr`}
+              {`${twoDigit(getHours(countdown))} hr`}
               <br />
             </>
           ) : ''}
           {getMins(countdown) > 0 ? (
             <>
-              {`${twoDigit(getMins(countdown))}min`}
+              {`${twoDigit(getMins(countdown))} min`}
               <br />
             </>
           ) : ''}
-          {getSecs(countdown)}
+          {`${twoDigit(getSecs(countdown))} sec`}
         </Box>
       )}
       {countdown <= 0 && (
@@ -70,6 +75,7 @@ const CountdownClock = ({ due, totalCutOff }) => {
       <CircularProgress
         variant="static"
         disableShrink
+        color="secondary"
         className={classes.top}
         value={progress()}
         size={90}
@@ -78,4 +84,4 @@ const CountdownClock = ({ due, totalCutOff }) => {
   )
 }
 
-export default CountdownClock
+export default CountdownProgress

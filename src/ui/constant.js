@@ -6,7 +6,8 @@ import {
   ListAlt as FormIcon,
   Accessibility as CoachmarkIcon,
   Error as NotFoundIcon,
-  Input as InputIcon
+  Input as InputIcon,
+  ArtTrack as DisplayIcon
 } from '@material-ui/icons'
 
 export const options = {
@@ -40,8 +41,9 @@ export const snackbar = [
   (openSnackbar) => (
     <Button
       key="2"
-      color="secondary"
       style={{
+        background: '#12a340',
+        color: 'white',
         width: '100px'
       }}
       onClick={() => openSnackbar('Successful', 'success')}
@@ -65,9 +67,8 @@ export const snackbar = [
   (openSnackbar) => (
     <Button
       key="4"
+      color="secondary"
       style={{
-        background: '#FF5A5F',
-        color: 'white',
         width: '100px'
       }}
       onClick={() => openSnackbar('Error!', 'error')}
@@ -88,5 +89,6 @@ export const menu = [
   { divider: true, text: 'divider2' },
   { text: 'Other Components' },
   { icon: <InputIcon />, text: 'Other Inputs', link: '/other-input' },
+  { icon: <DisplayIcon />, text: 'Display', link: '/display' },
   { icon: <FeedbackIcon />, text: 'Feedback', link: '/feedback' }
 ]

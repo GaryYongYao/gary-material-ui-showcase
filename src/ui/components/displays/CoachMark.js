@@ -21,10 +21,10 @@ const usePopoverStyles = makeStyles({
       top: (anchorOrigin.vertical === 'bottom') ? '-8px' : 'unset',
       left: (anchorOrigin.horizontal === 'left') ? '10px' : 'unset',
       bottom: (anchorOrigin.vertical === 'top') ? '-8px' : 'unset',
-      borderTop: (anchorOrigin.vertical === 'top') ? '8px solid #FF5A5F' : 'none',
+      borderTop: (anchorOrigin.vertical === 'top') ? '8px solid #2980b9' : 'none',
       borderRight: '8px solid transparent',
       borderLeft: '8px solid transparent',
-      borderBottom: (anchorOrigin.vertical === 'bottom') ? '8px solid #FF5A5F' : 'none',
+      borderBottom: (anchorOrigin.vertical === 'bottom') ? '8px solid #2980b9' : 'none',
     }
   })
 })

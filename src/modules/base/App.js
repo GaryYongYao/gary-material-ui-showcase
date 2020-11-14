@@ -7,6 +7,7 @@ import {
 } from 'modules/dashboard'
 import {
   InputScreen,
+  DisplayScreen,
   FeedbackScreen
 } from 'modules/others'
 import { CustomSnackbar, SnackbarContextProvider } from 'ui/components/feedback/Snackbar'
@@ -28,6 +29,7 @@ function App() {
                 <Route exact path="/form" component={RegisterScreen} />
                 <Route exact path="/other-input" component={InputScreen} />
                 <Route exact path="/feedback" component={FeedbackScreen} />
+                <Route exact path="/display" component={DisplayScreen} />
                 <Route exact path="/coachmark" component={CoachmarkScreen} />
                 <Route exact path="/" component={DashboardScreen} />
                 <Route component={NotFoundScreen} />

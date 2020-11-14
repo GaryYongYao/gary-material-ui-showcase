@@ -14,6 +14,16 @@ export function twoDigit(num) {
   return (num < 10) ? `0${num}` : num
 }
 
+export const formatCountdown = (remains) => {
+  const hours = getHours(remains)
+  const formatedHr = hours > 0 ? `${twoDigit(hours)} hr` : ''
+  const mins = getMins(remains)
+  const formatedMin = (mins > 0 || hours > 0) ? `${twoDigit(mins)} min` : ''
+  const secs = getSecs(remains)
+
+  return remains > 0 ? `${formatedHr} ${formatedMin} ${secs}` : 'Expired'
+}
+
 export const getHours = (remains) => {
   const hours = (Math.floor((Math.floor(remains / 60)) / 60) % 24)
   return hours
@@ -25,7 +35,7 @@ export const getMins = (remains) => {
 }
 
 export const getSecs = (remains) => {
-  const secs = `${twoDigit(Math.floor(remains % 60))} sec`
+  const secs = Math.floor(remains % 60)
   return secs
 }
 

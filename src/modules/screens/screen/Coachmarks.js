@@ -2,11 +2,13 @@ import React, { useRef, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Box,
+  Button,
   Divider,
   FormControl,
   IconButton,
   Input,
   InputAdornment,
+  Switch,
   Typography
 } from '@material-ui/core'
 import {
@@ -15,6 +17,7 @@ import {
 import DashboardLayout from 'ui/layout/dashboardLayout'
 import FormPaper from 'ui/components/FormPaper'
 import CoachMarkIcon from 'ui/components/displays/CoachMarkIcon'
+import CoachMark from 'ui/components/displays/CoachMark'
 
 const useStyles = makeStyles(() => ({
   inputRoot: {
@@ -29,6 +32,7 @@ function CoachmarkScreen() {
   const [step, setStep] = useState(0)
   const [eleRef, setEleRef] = React.useState({})
   const divRef = useRef()
+  const checkRef = useRef()
   const searchIcon = <SearchIcon />
 
   React.useEffect(() => {
@@ -88,9 +92,34 @@ function CoachmarkScreen() {
                   description="Step 2 Coachmark"
                   anchorEl={eleRef}
                   open={step === 2}
-                  closeCoachMark={() => setStep(1)}
+                  closeCoachMark={() => setStep(3)}
                 />
               </FormControl>
+            </Box>
+            <Divider />
+            <Box mb={2}>
+              <Typography variant="h6">Coachmarks without icon</Typography>
+            </Box>
+            <Box mt={3} mb={3} display="flex" flexDirection="column" justifyContent="center" alignItems="center" style={{ position: 'relative' }}>
+              <FormControl>
+                <Switch ref={checkRef} name="isAvailable" />
+                <CoachMark
+                  description="Step 3 Coachmark"
+                  anchorEl={checkRef.current}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right'
+                  }}
+                  open={step === 3}
+                  closeCoachMark={() => setStep(0)}
+                />
+              </FormControl>
+            </Box>
+            <Divider />
+            <Box mt={3} mb={3} display="flex" flexDirection="column" justifyContent="center" alignItems="center" style={{ position: 'relative' }}>
+              <Button color="primary" variant="contained" onClick={() => setStep(1)}>
+                Restart
+              </Button>
             </Box>
             <Divider />
           </FormPaper>
