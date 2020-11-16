@@ -16,9 +16,9 @@ export function twoDigit(num) {
 
 export const formatCountdown = (remains) => {
   const hours = getHours(remains)
-  const formatedHr = hours > 0 ? `${twoDigit(hours)} hr` : ''
+  const formatedHr = hours > 0 ? `${twoDigit(hours)} : ` : ''
   const mins = getMins(remains)
-  const formatedMin = (mins > 0 || hours > 0) ? `${twoDigit(mins)} min` : ''
+  const formatedMin = (mins > 0 || hours > 0) ? `${twoDigit(mins)} : ` : ''
   const secs = getSecs(remains)
 
   return remains > 0 ? `${formatedHr} ${formatedMin} ${secs}` : 'Expired'

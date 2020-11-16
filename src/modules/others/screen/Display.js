@@ -28,9 +28,9 @@ function DisplayScreen() {
               justifyContent="space-around"
               alignItems="center"
             >
-              <Box><CountdownClock due={7200} color="#FF5A5F" /></Box>
-              <Box><CountdownIndi due={7200} /></Box>
-              <Box><CountdownProgress due={7200} totalCutOff={7200} /></Box>
+              <Box><CountdownClock due={7199} color="#FF5A5F" /></Box>
+              <Box><CountdownIndi due={7199} /></Box>
+              <Box><CountdownProgress due={7199} totalCutOff={7200} /></Box>
             </Box>
             <Divider />
             <Typography variant="body1"><b>Skeleton</b></Typography>
