@@ -1,4 +1,6 @@
 import { lowerCase, startCase } from 'lodash'
+import moment from 'moment'
+import timezone from 'moment-timezone'
 
 export const startCapital = text => startCase(lowerCase(text))
 
@@ -14,14 +16,12 @@ export function twoDigit(num) {
   return (num < 10) ? `0${num}` : num
 }
 
-export const formatCountdown = (remains) => {
-  const hours = getHours(remains)
-  const formatedHr = hours > 0 ? `${twoDigit(hours)} : ` : ''
-  const mins = getMins(remains)
-  const formatedMin = (mins > 0 || hours > 0) ? `${twoDigit(mins)} : ` : ''
-  const secs = getSecs(remains)
-
-  return remains > 0 ? `${formatedHr} ${formatedMin} ${secs}` : 'Expired'
+export const formatTime = (now, zone, int = false) => {
+  const time = moment.unix(now).utc()
+  const offset = zone && timezone.tz.zone(zone).parse(time) * -1
+  return offset
+    ? time.utcOffset(offset).format(int ? 'HH : mm : ss' : 'hh : mm : ss a')
+    : time.format(int ? 'HH : mm : ss' : 'hh : mm : ss a')
 }
 
 export const getHours = (remains) => {

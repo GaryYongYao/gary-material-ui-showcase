@@ -8,8 +8,11 @@ function DashboardScreen() {
   const { history } = useRoutes()
   // const { snackbarContext, setSnackbarContext } = useContext(SnackbarContext)
   const menu = [
-    { text: 'Products', link: '/products' },
-    { text: 'Clients', link: '/clients' },
+    { text: 'Form', link: '/form' },
+    { text: 'Coachmark', link: '/coachmark' },
+    { text: 'Inputs', link: '/other-input' },
+    { text: 'Display Component', link: '/display' },
+    { text: 'Feedback Component', link: '/feedback' },
   ]
 
   return (
@@ -24,7 +27,7 @@ function DashboardScreen() {
             top="-20px"
             left="calc(50% - 35px)"
             padding="5px"
-            bgcolor="rgba(255, 255, 255, 1)"
+            bgcolor="rgba(234, 234, 234, 1)"
           >
             <Typography variant="subtitle1">Go to ...</Typography>
           </Box>

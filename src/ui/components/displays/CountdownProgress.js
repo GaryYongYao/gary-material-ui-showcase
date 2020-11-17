@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { twoDigit, getHours, getMins, getSecs } from 'utils'
 
@@ -39,22 +40,28 @@ const CountdownProgress = ({ due, totalCutOff }) => {
           height="55px"
           display="flex"
           alignItems="center"
-          color="#FF5A5F"
-          style={{ fontWeight: 800 }}
         >
-          {getHours(countdown) > 0 ? (
-            <>
-              {`${twoDigit(getHours(countdown))} hr`}
-              <br />
-            </>
-          ) : ''}
-          {getMins(countdown) > 0 ? (
-            <>
-              {`${twoDigit(getMins(countdown))} min`}
-              <br />
-            </>
-          ) : ''}
-          {`${twoDigit(getSecs(countdown))} sec`}
+          <Typography
+            variant="caption"
+            style={{
+              color: '#FF5A5F',
+              fontWeight: 800
+            }}
+          >
+            {getHours(countdown) > 0 ? (
+              <>
+                {`${twoDigit(getHours(countdown))} hr`}
+                <br />
+              </>
+            ) : ''}
+            {getMins(countdown) > 0 ? (
+              <>
+                {`${twoDigit(getMins(countdown))} min`}
+                <br />
+              </>
+            ) : ''}
+            {`${twoDigit(getSecs(countdown))} sec`}
+          </Typography>
         </Box>
       )}
       {countdown <= 0 && (

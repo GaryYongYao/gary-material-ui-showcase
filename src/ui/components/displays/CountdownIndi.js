@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { getHours, getMins, getSecs } from 'utils'
 
@@ -48,12 +49,16 @@ const CountdownIndi = ({ due }) => {
               <Box
                 position="absolute"
                 top="20px"
-                left="21px"
+                left="26px"
                 color="#707070"
                 style={{ fontWeight: 800, textAlign: 'center' }}
               >
-                <Box>{getHours(countdown)}</Box>
-                <Box>Hour</Box>
+                <Box>
+                  <Typography variant="caption">{getHours(countdown)}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption">Hour</Typography>
+                </Box>
               </Box>
               <CircularProgress
                 variant="static"
@@ -75,12 +80,16 @@ const CountdownIndi = ({ due }) => {
               <Box
                 position="absolute"
                 top="20px"
-                left="13px"
+                left="18px"
                 color="#707070"
                 style={{ fontWeight: 800, textAlign: 'center' }}
               >
-                <Box>{getMins(countdown)}</Box>
-                <Box>Minutes</Box>
+                <Box>
+                  <Typography variant="caption">{getMins(countdown)}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption">Minutes</Typography>
+                </Box>
               </Box>
               <CircularProgress
                 variant="static"
@@ -101,12 +110,16 @@ const CountdownIndi = ({ due }) => {
             <Box
               position="absolute"
               top="20px"
-              left="13px"
+              left="16px"
               color="#707070"
               style={{ fontWeight: 800, textAlign: 'center' }}
             >
-              <Box>{getSecs(countdown)}</Box>
-              <Box>Seconds</Box>
+              <Box>
+                <Typography variant="caption">{getSecs(countdown)}</Typography>
+              </Box>
+              <Box>
+                <Typography variant="caption">Seconds</Typography>
+              </Box>
             </Box>
             <CircularProgress
               variant="static"

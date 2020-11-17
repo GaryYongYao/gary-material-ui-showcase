@@ -43,8 +43,11 @@ const theme = createMuiTheme({
       }
     },
     MuiInputLabel: {
+      formControl: {
+        transform: 'translate(0, 10px) scale(1)'
+      },
       shrink: {
-        transform: 'translate(0, 1.5px) scale(0.9)'
+        transform: 'translate(0, -10px) scale(0.9)'
       }
     },
     MuiListItemText: {
