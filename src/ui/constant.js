@@ -79,10 +79,8 @@ export const snackbar = [
 ]
 
 export const menu = [
-  { text: 'Dashboard components' },
-  { icon: <DashboardIcon />, text: 'Dashboard', link: '/' },
-  { divider: true, text: 'divider1' },
   { text: 'Screens' },
+  { icon: <DashboardIcon />, text: 'Dashboard', link: '/' },
   { icon: <FormIcon />, text: 'Form', link: '/form' },
   { icon: <CoachmarkIcon />, text: 'Coachmarks', link: '/coachmark' },
   { icon: <NotFoundIcon />, text: 'Error', link: '/404' },

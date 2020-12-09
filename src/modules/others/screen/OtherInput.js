@@ -52,10 +52,30 @@ function InputScreen() {
             <Typography variant="body1"><b>Button Group</b></Typography>
             <Box pt={1} display="flex" justifyContent="center">
               <ButtonGroup color="primary" aria-label="outlined primary button group">
-                <Button onClick={() => setValue('page', 'Boolean Inputs')}>Boolean Inputs</Button>
-                <Button onClick={() => setValue('page', 'DateTime Inputs')}>DateTime Inputs</Button>
-                <Button onClick={() => setValue('page', 'File Upload Inputs')}>File Upload Inputs</Button>
-                <Button onClick={() => setValue('page', 'Sliders')}>Sliders</Button>
+                <Button
+                  variant={values.page === 'Boolean Inputs' ? 'contained' : 'outlined'}
+                  onClick={() => setValue('page', 'Boolean Inputs')}
+                >
+                  Boolean Inputs
+                </Button>
+                <Button
+                  variant={values.page === 'DateTime Inputs' ? 'contained' : 'outlined'}
+                  onClick={() => setValue('page', 'DateTime Inputs')}
+                >
+                  DateTime Inputs
+                </Button>
+                <Button
+                  variant={values.page === 'File Upload Inputs' ? 'contained' : 'outlined'}
+                  onClick={() => setValue('page', 'File Upload Inputs')}
+                >
+                  File Upload Inputs
+                </Button>
+                <Button
+                  variant={values.page === 'Sliders' ? 'contained' : 'outlined'}
+                  onClick={() => setValue('page', 'Sliders')}
+                >
+                  Sliders
+                </Button>
               </ButtonGroup>
             </Box>
             <Divider />
